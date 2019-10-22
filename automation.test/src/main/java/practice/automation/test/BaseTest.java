@@ -10,7 +10,7 @@ import org.testng.annotations.Parameters;
 
 public class BaseTest {
 	protected static WebDriver driver;
-	private WebDriverWait wait;
+	protected static WebDriverWait wait;
 	
 	public static WebDriver getDriver() {
 		return driver;

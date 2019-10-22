@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Test Suite]">
-  <parameter name="appURL" value=" http://automationpractice.com"/>
-  <parameter name="browserType" value="chrome"/>
-  <test thread-count="5" name="Practice Tests(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="practice.automation.test.App">
         <methods>
@@ -13,5 +11,5 @@
         </methods>
       </class> <!-- practice.automation.test.App -->
     </classes>
-  </test> <!-- Practice Tests(failed) -->
-</suite> <!-- Failed suite [Test Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

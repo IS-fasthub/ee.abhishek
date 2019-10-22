@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content passed suite-Test_Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Test_Suite" title="practice.automation.test.App" hash-for-method="assignmentOne">assignmentOne</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Test_Suite" title="practice.automation.test.App" hash-for-method="happyFlow">happyFlow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Test_Suite" title="practice.automation.test.App" hash-for-method="unhappyFlow">unhappyFlow</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Test_Suite -->
@@ -125,9 +130,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="assignmentOne">
-                  </a> <!-- assignmentOne -->
-                  <span class="method-name">assignmentOne</span>
+                  <a name="happyFlow">
+                  </a> <!-- happyFlow -->
+                  <span class="method-name">happyFlow</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="unhappyFlow">
+                  </a> <!-- unhappyFlow -->
+                  <span class="method-name">unhappyFlow</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -186,16 +198,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'assignmentOne')
+data.setCell(0, 1, 'unhappyFlow')
 data.setCell(0, 2, 'practice.automation.test.App')
-data.setCell(0, 3, 28297);
+data.setCell(0, 3, 32262);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'happyFlow')
+data.setCell(1, 2, 'practice.automation.test.App')
+data.setCell(1, 3, 22662);
 window.suiteTableData['Test_Suite']= { tableData: data, tableDiv: 'times-div-Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 28 seconds</span>
+              <span class="suite-total-time">Total running time: 54 seconds</span>
               <div id="times-div-Test_Suite">
               </div> <!-- times-div-Test_Suite -->
             </div> <!-- times-div -->
@@ -227,12 +243,16 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">assignmentOne</span>
-                <span class="method-start">22484 ms</span>
+                <span class="method-name">happyFlow</span>
+                <span class="method-start">11453 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">unhappyFlow</span>
+                <span class="method-start">34117 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeDriver</span>
-                <span class="method-start">50784 ms</span>
+                <span class="method-start">66383 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

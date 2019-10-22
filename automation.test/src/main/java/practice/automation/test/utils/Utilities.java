@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 public class Utilities {
 
 	public static String getPropertyValue(String key) {
@@ -22,5 +26,19 @@ public class Utilities {
 		}
 
 		return prop.getProperty(key);
+	}
+	
+	public static void sleep(long time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	
+	public static void moveToWebElement(WebDriver driver, WebElement element) {
+		Actions act = new Actions(driver);
+		act.moveToElement(element).perform();
 	}
 }

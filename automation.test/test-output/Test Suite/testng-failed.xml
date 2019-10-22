@@ -8,8 +8,8 @@
       <class name="practice.automation.test.App">
         <methods>
           <include name="closeDriver"/>
+          <include name="unhappyFlow"/>
           <include name="initialize"/>
-          <include name="assignmentOne"/>
         </methods>
       </class> <!-- practice.automation.test.App -->
     </classes>

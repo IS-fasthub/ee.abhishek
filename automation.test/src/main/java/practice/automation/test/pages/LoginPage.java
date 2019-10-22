@@ -32,4 +32,12 @@ public class LoginPage extends BasePage {
 			return getLogInForm().isDisplayed();
 		}
 	};
+	
+	public void signIn(String username, String password) {
+		
+		this.getEmailField().sendKeys(username);
+		this.getPasswordField().sendKeys(password);
+		this.getButtonSignIn().click();
+	}
+
 }
