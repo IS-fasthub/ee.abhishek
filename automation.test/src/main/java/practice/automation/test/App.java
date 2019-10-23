@@ -27,14 +27,9 @@ import practice.automation.test.utils.Utilities;
  */
 public class App extends BaseTest
 {
-	private ExtentReports reports = new ExtentReports("ExtentReport.html");
-	
-	
 	@Test
     public void happyFlow() {
-    	
-		ExtentTest happyFlow = reports.startTest("Happy Flow");
-		String username = Utilities.getPropertyValue("assignment1.username");
+    	String username = Utilities.getPropertyValue("assignment1.username");
     	//password from test.properties file
     	String password = Utilities.getPropertyValue("assignment1.password");
     	//loggedInUser from test.properties file
@@ -47,20 +42,19 @@ public class App extends BaseTest
     	
     	LoginPage loginPage = new LoginPage();
     	wait.until(loginPage.logInFormToAppear);
+    	reportLogger("Logging in with "+username);
+    	
     	loginPage.signIn(username, password);
-
     	MemberHomePage memberHomePage = new MemberHomePage();
     	wait.until(memberHomePage.loggedInUsernameToAppear);
     	
-    	if(memberHomePage.getLoggedInUser().isDisplayed())
-    		happyFlow.log(LogStatus.PASS, "Login successful");
-    	else
-    		happyFlow.log(LogStatus.FAIL, "Login failed");
-    	
+    	verify(memberHomePage.getLoggedInUser().isDisplayed(),"Login successful", "Login failed");
+
     	memberHomePage.getSearchTextBox().sendKeys("t-shirt"+Keys.ENTER);
     	
     	SearchResultPage searchResultPage = new SearchResultPage();
     	wait.until(searchResultPage.resultToAppear);
+    	reportLogger("Search result for t-shirt");
     	
     	String itemPrice = searchResultPage.getProductPriceByIndex(0).getText().trim().replaceAll("\\$", "");
     	
@@ -74,7 +68,8 @@ public class App extends BaseTest
     	Utilities.sleep(2000);
     	
     	SearchResultPage searchResultPage1 = new SearchResultPage();
-  
+    	
+    	reportLogger("Adding item to cart");
     	Utilities.moveToWebElement(getDriver(), searchResultPage1.getProductByIndex(0));
     	searchResultPage1.getButtonAddToCartByIndex(0).click();
     	
@@ -90,19 +85,13 @@ public class App extends BaseTest
     	double total = Double.parseDouble(cartPage.getCartTotal().getText().trim().replaceAll("\\$", ""));
     	double totalShipping = Double.parseDouble(cartPage.getTotalShipping().getText().trim().replaceAll("\\$", ""));
     	
-    	if(total==unitPrice*itemQuantity)
-    		happyFlow.log(LogStatus.PASS, "Total is as per quantity");
-    	else
-    		happyFlow.log(LogStatus.FAIL, "Total is not as per quantity");
+    	verify(total==unitPrice*itemQuantity, "Total is as per quantity", "Total is not as per quantity");
     	
     	double tax = Double.parseDouble(cartPage.getTaxAmount().getText().trim().replaceAll("\\$", ""));
     	double totalAmount = Double.parseDouble(cartPage.getTotalAmount().getText().trim().replaceAll("\\$", ""));
     	
     	
-    	if(totalAmount==total+totalShipping+tax)
-    		happyFlow.log(LogStatus.PASS, "Total amount includes tax amount");
-    	else
-    		happyFlow.log(LogStatus.FAIL, "Total amount does not includes tax amount");
+    	verify(totalAmount==total+totalShipping+tax, "Total amount includes tax amount", "Total amount does not includes tax amount");
     	
     	
     	Utilities.moveToWebElement(getDriver(), cartPage.getButtonCart());
@@ -112,14 +101,12 @@ public class App extends BaseTest
     	wait.until(cartPage1.emptyWarningToAppear);
     	
     	cartPage1.getButtonSignOut().click();
-    	reports.endTest(happyFlow);
-    	reports.flush();
+		
 	}
 	
 	@Test
     public void unhappyFlow() {
     	
-		ExtentTest unHappyFlow = reports.startTest("Unhappy Flow");
 		String username = Utilities.getPropertyValue("assignment1.username");
     	//password from test.properties file
     	String password = Utilities.getPropertyValue("assignment1.password");
@@ -138,10 +125,7 @@ public class App extends BaseTest
     	MemberHomePage memberHomePage = new MemberHomePage();
     	wait.until(memberHomePage.loggedInUsernameToAppear);
     	
-    	if(memberHomePage.getLoggedInUser().isDisplayed())
-    		unHappyFlow.log(LogStatus.PASS, "Login successful");
-    	else
-    		unHappyFlow.log(LogStatus.FAIL, "Login failed");
+    	verify(memberHomePage.getLoggedInUser().isDisplayed(), "Login successful", "Login failed");
     	
     	memberHomePage.getSearchTextBox().sendKeys("t-shirt"+Keys.ENTER);
     	
@@ -165,19 +149,13 @@ public class App extends BaseTest
     	double total = Double.parseDouble(cartSummaryPage.getCartTotal().getText().trim().replaceAll("\\$", ""));
     	double totalShipping = Double.parseDouble(cartSummaryPage.getTotalShipping().getText().trim().replaceAll("\\$", ""));
     	
-    	if(total==unitPrice*itemQuantity)
-    		unHappyFlow.log(LogStatus.PASS, "Total is as per quantity");
-    	else
-    		unHappyFlow.log(LogStatus.FAIL, "Total is not as per quantity");
+    	verify(total==unitPrice*itemQuantity, "Total is as per quantity", "Total is not as per quantity");
     	
     	double tax = Double.parseDouble(cartSummaryPage.getTaxAmount().getText().trim().replaceAll("\\$", ""));
     	double totalAmount = Double.parseDouble(cartSummaryPage.getTotalAmount().getText().trim().replaceAll("\\$", ""));
     	
     	
-    	if(totalAmount==total+totalShipping+tax)
-    		unHappyFlow.log(LogStatus.PASS, "Total amount includes tax amount");
-    	else
-    		unHappyFlow.log(LogStatus.FAIL, "Total amount does not includes tax amount");
+    	verify(totalAmount==total+totalShipping+tax, "Total amount includes tax amount", "Total amount does not includes tax amount");
     	
     	
     	CartSummaryPage cartSummaryPage1 = new CartSummaryPage();
@@ -201,13 +179,9 @@ public class App extends BaseTest
     	CartPaymentPage cartPaymentPage1 = new CartPaymentPage();
     	cartPaymentPage1.getButtonConfirmOrder().click();
     	
-    	if(cartPaymentPage1.getLabelSuccessMessage().getText().contains("Your order on My Store is complete."))
-    		unHappyFlow.log(LogStatus.PASS, "Order placed successfully");
-    	else
-    		unHappyFlow.log(LogStatus.FAIL, "Order placement failed");
+    	verify(cartPaymentPage1.getLabelSuccessMessage().getText().contains("Your order on My Store is complete."), "Order placed successfully", "Order placement failed");
     		
     	cartPaymentPage1.getButtonSignOut().click();
-    	reports.endTest(unHappyFlow);
-    	reports.flush();
+		
 	}
 }

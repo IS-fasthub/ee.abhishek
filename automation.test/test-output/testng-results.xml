@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Test Suite" duration-ms="67090" started-at="2019-10-22T01:57:54Z" finished-at="2019-10-22T01:59:01Z">
+  <suite name="Test Suite" duration-ms="77397" started-at="2019-10-23T01:04:51Z" finished-at="2019-10-23T01:06:09Z">
     <groups>
     </groups>
-    <test name="Practice Tests" duration-ms="67090" started-at="2019-10-22T01:57:54Z" finished-at="2019-10-22T01:59:01Z">
+    <test name="Practice Tests" duration-ms="77397" started-at="2019-10-23T01:04:51Z" finished-at="2019-10-23T01:06:09Z">
       <class name="practice.automation.test.App">
-        <test-method status="PASS" signature="initialize(java.lang.String, java.lang.String)[pri:0, instance:practice.automation.test.App@480bdb19]" name="initialize" is-config="true" duration-ms="11446" started-at="2019-10-22T01:57:54Z" finished-at="2019-10-22T01:58:05Z">
+        <test-method status="PASS" signature="initialize(java.lang.String, java.lang.String)[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="initialize" is-config="true" duration-ms="13636" started-at="2019-10-23T01:04:51Z" finished-at="2019-10-23T01:05:05Z">
           <params>
             <param index="0">
               <value>
@@ -23,15 +23,45 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="happyFlow()[pri:0, instance:practice.automation.test.App@480bdb19]" name="happyFlow" duration-ms="22662" started-at="2019-10-22T01:58:05Z" finished-at="2019-10-22T01:58:28Z">
+        <test-method status="PASS" signature="logSetup(java.lang.reflect.Method)[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="logSetup" is-config="true" duration-ms="11" started-at="2019-10-23T01:05:05Z" finished-at="2019-10-23T01:05:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void practice.automation.test.App.happyFlow()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logSetup -->
+        <test-method status="PASS" signature="happyFlow()[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="happyFlow" duration-ms="25438" started-at="2019-10-23T01:05:05Z" finished-at="2019-10-23T01:05:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- happyFlow -->
-        <test-method status="PASS" signature="unhappyFlow()[pri:0, instance:practice.automation.test.App@480bdb19]" name="unhappyFlow" duration-ms="32262" started-at="2019-10-22T01:58:28Z" finished-at="2019-10-22T01:59:00Z">
+        <test-method status="PASS" signature="endTestLog()[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="endTestLog" is-config="true" duration-ms="451" started-at="2019-10-23T01:05:30Z" finished-at="2019-10-23T01:05:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestLog -->
+        <test-method status="PASS" signature="logSetup(java.lang.reflect.Method)[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="logSetup" is-config="true" duration-ms="1" started-at="2019-10-23T01:05:31Z" finished-at="2019-10-23T01:05:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void practice.automation.test.App.unhappyFlow()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logSetup -->
+        <test-method status="PASS" signature="unhappyFlow()[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="unhappyFlow" duration-ms="37028" started-at="2019-10-23T01:05:31Z" finished-at="2019-10-23T01:06:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- unhappyFlow -->
-        <test-method status="PASS" signature="closeDriver()[pri:0, instance:practice.automation.test.App@480bdb19]" name="closeDriver" is-config="true" duration-ms="695" started-at="2019-10-22T01:59:00Z" finished-at="2019-10-22T01:59:01Z">
+        <test-method status="PASS" signature="endTestLog()[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="endTestLog" is-config="true" duration-ms="74" started-at="2019-10-23T01:06:08Z" finished-at="2019-10-23T01:06:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestLog -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:practice.automation.test.App@7d70d1b1]" name="closeDriver" is-config="true" duration-ms="722" started-at="2019-10-23T01:06:08Z" finished-at="2019-10-23T01:06:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeDriver -->

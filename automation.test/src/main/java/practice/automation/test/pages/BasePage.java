@@ -10,8 +10,12 @@ import org.testng.Assert;
 import practice.automation.test.BaseTest;
 
 
-public class BasePage extends BaseTest{
+public class BasePage{
 
+	public WebDriver getDriver() {
+		return BaseTest.getDriver();
+	}
+	
 	public WebElement getSearchTextBox() {
 
 		return getDriver().findElement(By.xpath("//input[@id='search_query_top']"));
@@ -42,7 +46,7 @@ public class BasePage extends BaseTest{
 		}
 	}
 	
-	public static void scrollIntoView(WebElement element) {
+	public void scrollIntoView(WebElement element) {
 		
 		((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
